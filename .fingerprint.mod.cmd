@@ -1,0 +1,1 @@
+cmd_/home/marc/CLionProjects/fingerprint_reader/fingerprint.mod := printf '%s\n'   fingerprint.o | awk '!x[$$0]++ { print("/home/marc/CLionProjects/fingerprint_reader/"$$0) }' > /home/marc/CLionProjects/fingerprint_reader/fingerprint.mod

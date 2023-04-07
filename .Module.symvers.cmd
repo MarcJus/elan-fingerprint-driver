@@ -1,0 +1,1 @@
+cmd_/home/marc/CLionProjects/fingerprint_reader/Module.symvers := sed 's/ko$$/o/' /home/marc/CLionProjects/fingerprint_reader/modules.order | scripts/mod/modpost -m -a  -o /home/marc/CLionProjects/fingerprint_reader/Module.symvers -e -i Module.symvers   -T -

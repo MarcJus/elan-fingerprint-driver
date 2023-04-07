@@ -1,0 +1,1 @@
+cmd_/home/marc/CLionProjects/fingerprint_reader/modules.order := {   echo /home/marc/CLionProjects/fingerprint_reader/fingerprint.ko; :; } | awk '!x[$$0]++' - > /home/marc/CLionProjects/fingerprint_reader/modules.order

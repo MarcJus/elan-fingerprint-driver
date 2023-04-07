@@ -1,0 +1,1 @@
+cmd_/home/marc/CLionProjects/fingerprint_reader/fingerprint_usb_request.mod := printf '%s\n'   fingerprint_usb_request.o | awk '!x[$$0]++ { print("/home/marc/CLionProjects/fingerprint_reader/"$$0) }' > /home/marc/CLionProjects/fingerprint_reader/fingerprint_usb_request.mod

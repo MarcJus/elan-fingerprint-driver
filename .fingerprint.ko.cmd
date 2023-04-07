@@ -1,0 +1,1 @@
+cmd_/home/marc/CLionProjects/fingerprint_reader/fingerprint.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/marc/CLionProjects/fingerprint_reader/fingerprint.ko /home/marc/CLionProjects/fingerprint_reader/fingerprint.o /home/marc/CLionProjects/fingerprint_reader/fingerprint.mod.o;  true
