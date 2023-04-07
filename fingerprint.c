@@ -29,6 +29,8 @@ static u8 ep_1_data[16] = {};
 static int file_open = 0;
 static int request = 0;
 
+static struct urb *urb;
+
 static struct usb_device_id fingerprint_usb_table[] = {
         { USB_DEVICE(VENDOR_ID, PRODUCT_ID) },
         {}
@@ -244,18 +246,18 @@ static int ep_1_close_fingerprint(struct usb_device *usbDevice){
 int ep_4_wait_for_fingerprint(struct usb_device *usbDevice, u8 *buffer) {
 
     int ret, actual_length;
-    ret = usb_bulk_msg(usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4, &actual_length, 5000);
-    if (ret) {
-        printk(KERN_ERR "Bulk message ep 4 returned %d\n", ret);
-        printk("actual length : %d\n", actual_length);
-    }
-//    struct urb *urb;
-//
-//    urb = usb_alloc_urb(0, GFP_KERNEL);
-//
-//    usb_fill_bulk_urb(urb, usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4, NULL, NULL);
-//
-//    usb_free_urb(urb);
+//    ret = usb_bulk_msg(usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4, &actual_length, 5000);
+//    if (ret) {
+//        printk(KERN_ERR "Bulk message ep 4 returned %d\n", ret);
+//        printk("actual length : %d\n", actual_length);
+//    }
+
+    urb = usb_alloc_urb(0, GFP_KERNEL);
+
+    usb_fill_bulk_urb(urb, usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4, NULL, NULL);
+
+
+    usb_free_urb(urb);
     return actual_length;
 }
 
