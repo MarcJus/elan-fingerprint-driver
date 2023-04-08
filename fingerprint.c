@@ -23,6 +23,8 @@ static int fingerprint_close(struct inode *i, struct file *f);
 static ssize_t fingerprint_read(struct file *f, char __user *buf, size_t cnt, loff_t *off);
 static ssize_t fingerprint_write(struct file *f, const char __user *buf, size_t cnt, loff_t *off);
 
+static void ep_4_wait_for_fingerprint_complete_fn(struct urb *urb);
+
 static char usb_buffer[64];
 static u8 ep_1_data[16] = {};
 
@@ -243,7 +245,7 @@ static int ep_1_close_fingerprint(struct usb_device *usbDevice){
     return actual_length;
 }
 
-int ep_4_wait_for_fingerprint(struct usb_device *usbDevice, u8 *buffer) {
+static int ep_4_wait_for_fingerprint(struct usb_device *usbDevice, u8 *buffer) {
 
     int ret, actual_length;
 //    ret = usb_bulk_msg(usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4, &actual_length, 5000);
@@ -254,8 +256,9 @@ int ep_4_wait_for_fingerprint(struct usb_device *usbDevice, u8 *buffer) {
 
     urb = usb_alloc_urb(0, GFP_KERNEL);
 
-    usb_fill_bulk_urb(urb, usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4, NULL, NULL);
-
+    usb_fill_bulk_urb(urb, usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4,
+                      ep_4_wait_for_fingerprint_complete_fn,
+                      NULL);
 
     usb_free_urb(urb);
     return actual_length;
