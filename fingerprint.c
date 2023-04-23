@@ -31,7 +31,7 @@ static u8 ep_1_data[16] = {};
 static int file_open = 0;
 static int request = 0;
 
-static struct urb *urb;
+static struct urb *urb_request;
 
 static struct usb_device_id fingerprint_usb_table[] = {
         { USB_DEVICE(VENDOR_ID, PRODUCT_ID) },
@@ -139,7 +139,9 @@ static ssize_t fingerprint_read(struct file *f, char __user *buf, size_t cnt, lo
         request = 1;
 
         actual_length = ep_4_wait_for_fingerprint(device, bulk_data);
-        if(actual_length == 0){
+        if(actual_length < 0){
+            return -EIO;
+        }else if(actual_length == 0){
             printk("Timeout \n");
             header.type = FINGERPRINT_TIMEOUT;
         } else {
@@ -200,6 +202,10 @@ static ssize_t fingerprint_write(struct file *f, const char __user *buf, size_t 
     return 0;
 }
 
+void ep_4_wait_for_fingerprint_complete_fn(struct urb *urb) {
+    
+}
+
 /* Init functions */
 
 static int __init fingerprint_init(void){
@@ -254,16 +260,21 @@ static int ep_4_wait_for_fingerprint(struct usb_device *usbDevice, u8 *buffer) {
 //        printk("actual length : %d\n", actual_length);
 //    }
 
-    urb = usb_alloc_urb(0, GFP_KERNEL);
+    urb_request = usb_alloc_urb(0, GFP_KERNEL);
 
-    usb_fill_bulk_urb(urb, usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4,
+    usb_fill_bulk_urb(urb_request, usbDevice, usb_rcvbulkpipe(usbDevice, 0x4), buffer, 4,
                       ep_4_wait_for_fingerprint_complete_fn,
                       NULL);
 
-    usb_free_urb(urb);
+    ret = usb_submit_urb(urb_request, GFP_KERNEL);
+    if(ret < 0){
+        printk("Erreur bulk ep 4: %d\n", ret);
+        return ret;
+    }
+
+    usb_free_urb(urb_request);
     return actual_length;
 }
-
 
 static void __exit fingerprint_exit(void){
     printk(NAME " - exit\n");
