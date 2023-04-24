@@ -64,15 +64,15 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/usr/src/linux-headers-5.19.0-35-generic/include"
+					"path" : "/usr/src/linux-headers-5.19.0-40-generic/include"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/usr/src/linux-headers-5.19.0-35-generic/arch/x86/include"
+					"path" : "/usr/src/linux-headers-5.19.0-40-generic/arch/x86/include"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/usr/src/linux-headers-5.19.0-35-generic/arch/x86/include/generated"
+					"path" : "/usr/src/linux-headers-5.19.0-40-generic/arch/x86/include/generated"
 				}
 			],
 			"language" : "C",
