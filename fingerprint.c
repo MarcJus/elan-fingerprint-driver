@@ -28,8 +28,8 @@ static void ep_4_wait_for_fingerprint_complete_fn(struct urb *urb);
 static char usb_buffer[64];
 static u8 ep_1_data[16] = {};
 
-static int file_open = 0;
-static int request = 0;
+static int file_open = false;
+static int request = false;
 
 static struct urb *urb_request;
 
@@ -141,15 +141,18 @@ static ssize_t fingerprint_read(struct file *f, char __user *buf, size_t cnt, lo
         actual_length = ep_4_wait_for_fingerprint(device, bulk_data);
         if(actual_length < 0){
             return -EIO;
-        }else if(actual_length == 0){
-            printk("Timeout \n");
-            header.type = FINGERPRINT_TIMEOUT;
-        } else {
-            if (bulk_data[1] == 0x01) {
-                header.type = FINGERPRINT_RECOGNIZED;
-            } else { // empreinte non reconnue
-                header.type = FINGERPRINT_UNRECOGNIZED;
-            }
+        } else if(actual_length == 0){
+//            printk("Timeout \n");
+//            header.type = FINGERPRINT_TIMEOUT;
+//        } else {
+//            if (bulk_data[1] == 0x01) {
+//                header.type = FINGERPRINT_RECOGNIZED;
+//            } else { // empreinte non reconnue
+//                header.type = FINGERPRINT_UNRECOGNIZED;
+//            }
+            while(request); // requete pas terminée
+
+
 
         }
         if(copy_to_user(buf, &header, min(cnt, sizeof(header)))){
@@ -202,8 +205,9 @@ static ssize_t fingerprint_write(struct file *f, const char __user *buf, size_t 
     return 0;
 }
 
-void ep_4_wait_for_fingerprint_complete_fn(struct urb *urb) {
-    
+void ep_4_wait_for_fingerprint_complete_fn(struct urb *urb_response) {
+    printk("Ep 4 status : %d\n", urb_response->status);
+
 }
 
 /* Init functions */
@@ -272,8 +276,10 @@ static int ep_4_wait_for_fingerprint(struct usb_device *usbDevice, u8 *buffer) {
         return ret;
     }
 
-    usb_free_urb(urb_request);
-    return actual_length;
+    request = true;
+
+//    usb_free_urb(urb_request);
+    return 0;
 }
 
 static void __exit fingerprint_exit(void){
