@@ -52,21 +52,21 @@ build cmake_object_order_depends_target_fingerprint_reader: phony || CMakeFiles/
 build CMakeFiles/fingerprint_reader.dir/fingerprint.c.o: C_COMPILER__fingerprint_reader_Debug /home/marc/CLionProjects/fingerprint_reader/fingerprint.c || cmake_object_order_depends_target_fingerprint_reader
   DEP_FILE = CMakeFiles/fingerprint_reader.dir/fingerprint.c.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
-  INCLUDES = -I/usr/src/linux-headers-5.19.0-40-generic/include -I/usr/src/linux-headers-5.19.0-40-generic/arch/x86/include -I/usr/src/linux-headers-5.19.0-40-generic/arch/x86/include/generated
+  INCLUDES = -I/usr/src/linux-headers-5.19.0-46-generic/include -I/usr/src/linux-headers-5.19.0-46-generic/arch/x86/include -I/usr/src/linux-headers-5.19.0-46-generic/arch/x86/include/generated
   OBJECT_DIR = CMakeFiles/fingerprint_reader.dir
   OBJECT_FILE_DIR = CMakeFiles/fingerprint_reader.dir
 
 build CMakeFiles/fingerprint_reader.dir/test.c.o: C_COMPILER__fingerprint_reader_Debug /home/marc/CLionProjects/fingerprint_reader/test.c || cmake_object_order_depends_target_fingerprint_reader
   DEP_FILE = CMakeFiles/fingerprint_reader.dir/test.c.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
-  INCLUDES = -I/usr/src/linux-headers-5.19.0-40-generic/include -I/usr/src/linux-headers-5.19.0-40-generic/arch/x86/include -I/usr/src/linux-headers-5.19.0-40-generic/arch/x86/include/generated
+  INCLUDES = -I/usr/src/linux-headers-5.19.0-46-generic/include -I/usr/src/linux-headers-5.19.0-46-generic/arch/x86/include -I/usr/src/linux-headers-5.19.0-46-generic/arch/x86/include/generated
   OBJECT_DIR = CMakeFiles/fingerprint_reader.dir
   OBJECT_FILE_DIR = CMakeFiles/fingerprint_reader.dir
 
 build CMakeFiles/fingerprint_reader.dir/fingerprint_usb_request.c.o: C_COMPILER__fingerprint_reader_Debug /home/marc/CLionProjects/fingerprint_reader/fingerprint_usb_request.c || cmake_object_order_depends_target_fingerprint_reader
   DEP_FILE = CMakeFiles/fingerprint_reader.dir/fingerprint_usb_request.c.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
-  INCLUDES = -I/usr/src/linux-headers-5.19.0-40-generic/include -I/usr/src/linux-headers-5.19.0-40-generic/arch/x86/include -I/usr/src/linux-headers-5.19.0-40-generic/arch/x86/include/generated
+  INCLUDES = -I/usr/src/linux-headers-5.19.0-46-generic/include -I/usr/src/linux-headers-5.19.0-46-generic/arch/x86/include -I/usr/src/linux-headers-5.19.0-46-generic/arch/x86/include/generated
   OBJECT_DIR = CMakeFiles/fingerprint_reader.dir
   OBJECT_FILE_DIR = CMakeFiles/fingerprint_reader.dir
 
@@ -91,7 +91,7 @@ build fingerprint_reader: C_EXECUTABLE_LINKER__fingerprint_reader_Debug CMakeFil
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/marc/CLionProjects/fingerprint_reader/cmake-build-debug && /snap/clion/234/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/marc/CLionProjects/fingerprint_reader/cmake-build-debug && /snap/clion/241/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -102,7 +102,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/marc/CLionProjects/fingerprint_reader/cmake-build-debug && /snap/clion/234/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/marc/CLionProjects/fingerprint_reader -B/home/marc/CLionProjects/fingerprint_reader/cmake-build-debug
+  COMMAND = cd /home/marc/CLionProjects/fingerprint_reader/cmake-build-debug && /snap/clion/241/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/marc/CLionProjects/fingerprint_reader -B/home/marc/CLionProjects/fingerprint_reader/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -129,14 +129,14 @@ build all: phony fingerprint_reader
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/marc/CLionProjects/fingerprint_reader/CMakeLists.txt /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/marc/CLionProjects/fingerprint_reader/CMakeLists.txt /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/marc/CLionProjects/fingerprint_reader/CMakeLists.txt /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
+build /home/marc/CLionProjects/fingerprint_reader/CMakeLists.txt /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/241/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
 
 
 #############################################
