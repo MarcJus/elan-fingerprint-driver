@@ -25,11 +25,12 @@ static ssize_t fingerprint_write(struct file *f, const char __user *buf, size_t 
 
 static void ep_4_wait_for_fingerprint_complete_fn(struct urb *urb);
 
+static u8 *bulk_data;
 static char usb_buffer[64];
 static u8 ep_1_data[16] = {};
 
 static int file_open = false;
-static int request = false;
+static int request_complete = false;
 
 static struct urb *urb_request;
 
@@ -121,7 +122,7 @@ static int fingerprint_close(struct inode *i, struct file *f) {
     }
 
     file_open = false;
-    request = false;
+    request_complete = false;
     return 0;
 }
 
@@ -131,15 +132,15 @@ static ssize_t fingerprint_read(struct file *f, char __user *buf, size_t cnt, lo
 
     bzero(usb_buffer, 64);
 
-    if(!request) {
-        u8 *bulk_data;
+    if(!request_complete) {
         struct fingerprint_message_header header;
 
         bulk_data = kzalloc(64, GFP_KERNEL);
-        request = 1;
+        request_complete = 1;
 
         actual_length = ep_4_wait_for_fingerprint(device, bulk_data);
         if(actual_length < 0){
+            kfree(bulk_data);
             return -EIO;
         } else if(actual_length == 0){
 //            printk("Timeout \n");
@@ -150,7 +151,7 @@ static ssize_t fingerprint_read(struct file *f, char __user *buf, size_t cnt, lo
 //            } else { // empreinte non reconnue
 //                header.type = FINGERPRINT_UNRECOGNIZED;
 //            }
-            while(request); // requete pas terminée
+            while(request_complete); // requete pas terminée
 
 
 
@@ -208,6 +209,8 @@ static ssize_t fingerprint_write(struct file *f, const char __user *buf, size_t 
 void ep_4_wait_for_fingerprint_complete_fn(struct urb *urb_response) {
     printk("Ep 4 status : %d\n", urb_response->status);
 
+
+
 }
 
 /* Init functions */
@@ -224,7 +227,7 @@ static int __init fingerprint_init(void){
     return 0;
 }
 
-// Usb request
+// Usb request_complete
 static int ep_1_open_fingerprint(struct usb_device *usbDevice) {
 
     int actual_length, ret;
@@ -276,7 +279,7 @@ static int ep_4_wait_for_fingerprint(struct usb_device *usbDevice, u8 *buffer) {
         return ret;
     }
 
-    request = true;
+    request_complete = true;
 
 //    usb_free_urb(urb_request);
     return 0;
