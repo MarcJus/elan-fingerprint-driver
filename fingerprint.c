@@ -16,6 +16,11 @@
 #include <linux/uaccess.h>
 #include <linux/usb.h>
 #include <linux/mutex.h>
+#include <linux/init.h>
+#include <linux/fcntl.h>
+#include <linux/fs.h>
+#include <linux/delay.h>
+#include <linux/wait.h>
 
 
 /* Define these values to match your devices */
